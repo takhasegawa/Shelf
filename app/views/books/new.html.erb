@@ -1,5 +1,7 @@
 <h1>新規登録</h1>
 
+<% unless @book.errors.empty? %><p>入力内容に誤りがあります。</p><% end %>
+
 <%= form_for @book do |form| %>
 <table>
   <tr>
