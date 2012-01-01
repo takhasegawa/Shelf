@@ -1,0 +1,14 @@
+<h1>タイトル：<%= @book.title %></h1>
+
+<table>
+  <tr>
+    <td>著者</td><td><%= @book.authors %></td>
+  </tr>
+  <tr>
+     <td>出版年</td><td><%= @book.publish_year %></td>
+   </tr>
+   <tr>
+     <td>コメント</td><td><%= simple_format(@book.comment) %></td>
+   </tr>
+</table>
+<%= link_to "書籍一覧へ", :books %>

@@ -1,0 +1,43 @@
+<h1>本棚</h1>
+
+<%= form_tag [:search, :books], :method => :get do%>
+  <%= text_field_tag "query", params[:query] %>
+  <%= submit_tag "検索" %>
+<% end %>
+
+<% if params[:action] == "index" %>
+<span class="selected">在庫</span>
+<% else %>
+<span><%= link_to "在庫" , :books %></span>
+<% end %>
+<% if params[:action] == "checked_out"  %>
+<span class="selected">貸出中</span>
+<% else %>
+<span><%= link_to "貸出中" , [:checked_out, :books] %></span>
+<% end %>
+<% if params[:action] == "search" %>
+<span class="selected">検索結果</span>
+<% end %>
+
+<table>
+  <col class="books_title" />
+  <col class="books_author" />
+  <col class="books_publiosh_year" />
+  <col class="check_link" />
+  <col class="edit_link" />
+  <col class="delete_link" />
+  <% @books.each do |book| %>
+  <tr>
+    <td><%= link_to book.title, book %></td>
+    <td><%= book.authors %></td>
+    <td><%= book.publish_year %></td>
+    <td><%= check_inout_link(book) %></td>
+    <td><%= link_to "修正" , [ :edit , book] %></td>
+    <td><%= delete_link(book) %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= will_paginate(@books , :previous_label => '前', :next_label => '次') %>
+
+<%= link_to "新規登録", [ :new , :book ] %>

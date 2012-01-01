@@ -1,0 +1,28 @@
+<h1>新規登録</h1>
+
+<%= form_for @book do |form| %>
+<table>
+  <tr>
+    <td><%= form.label :title , "タイトル" %></td>
+    <td><%= form.text_field :title %></td>
+  </tr>
+  <tr>
+     <td><%= form.label :authors, "著者" %></td>
+     <td><%= form.text_field :authors %></td>
+   </tr>
+   <tr>
+     <td><%= form.label :publish_year, "出版年" %></td>
+     <td><%= form.number_field :publish_year %></td>
+   </tr>
+   <tr>
+     <td><%= form.label :comment, "コメント" %></td>
+     <td><%= form.text_area :comment %>
+   </tr>
+   <tr>
+     <td><%= form.submit "登録" %></td>
+     <td></td>
+   </tr>
+</table>
+<%= form.hidden_field :checked_out , :value => false %>
+<% end %>
+<%= link_to "書籍一覧へ", :books %>
