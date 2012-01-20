@@ -42,5 +42,3 @@ books = Book.order('id').limit(5).all
 books.each do |book|
   categories[0].books << book
 end
-
-
