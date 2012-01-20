@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110919051027) do
+ActiveRecord::Schema.define(:version => 20120120113725) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(:version => 20110919051027) do
     t.integer  "publish_year"
     t.text     "comment"
     t.boolean  "checked_out"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "category_id"
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

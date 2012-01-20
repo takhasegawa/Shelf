@@ -1,0 +1,37 @@
+<% unless @book.errors.empty? %>
+  <p>入力内容に誤りがあります。</p>
+  <ul id="error_messages">
+  <% @book.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>  
+<% end %>
+
+<%= form_for @book do |form| %>
+<table>
+  <tr>
+    <td><%= form.label :title  %></td>
+    <td><%= form.text_field :title %></td>
+  </tr>
+  <tr>
+     <td><%= form.label :authors %></td>
+     <td><%= form.text_field :authors %></td>
+   </tr>
+   <tr>
+     <td><%= form.label :publish_year %></td>
+     <td><%= form.number_field :publish_year %></td>
+   </tr>
+   <tr>
+     <td><%= form.label :comment %></td>
+     <td><%= form.text_area :comment %>
+   </tr>
+   <tr>
+     <td><%= form.label :checked_out %></td>
+     <td><%= form.check_box :checked_out %></td>
+   </tr>
+   <tr>
+     <td><%= form.submit "登録" %></td>
+     <td></td>
+   </tr>
+</table>
+<% end %>

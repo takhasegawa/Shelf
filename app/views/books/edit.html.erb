@@ -1,33 +1,5 @@
 <h1>修正登録</h1>
 
-<% unless @book.errors.empty? %><p>入力内容に誤りがあります。</p><% end %>
+<%= render 'form' %>
 
-<%= form_for @book do |form| %>
-<table>
-  <tr>
-    <td><%= form.label :title , "タイトル" %></td>
-    <td><%= form.text_field :title %></td>
-  </tr>
-  <tr>
-     <td><%= form.label :authors, "著者" %></td>
-     <td><%= form.text_field :authors %></td>
-   </tr>
-   <tr>
-     <td><%= form.label :publish_year, "出版年" %></td>
-     <td><%= form.number_field :publish_year %></td>
-   </tr>
-   <tr>
-     <td><%= form.label :comment, "コメント" %></td>
-     <td><%= form.text_area :comment %>
-   </tr>
-   <tr>
-     <td><%= form.label :checked_out , "貸し出し中" %></td>
-     <td><%= form.check_box :checked_out %></td>
-   </tr>
-   <tr>
-     <td><%= form.submit "登録" %></td>
-     <td></td>
-   </tr>
-</table>
-<% end %>
 <%= link_to "書籍一覧へ", :books %>
