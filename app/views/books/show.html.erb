@@ -1,6 +1,11 @@
 <h1>タイトル：<%= @book.title %></h1>
 
 <table>
+   <% if @book.category %>
+  <tr>
+    <td>ジャンル</td><td style="color:<%= @book.category.color %>"><%= @book.category.name %></td>
+  </tr>
+  <% end %>
   <tr>
     <td>著者</td><td><%= @book.authors %></td>
   </tr>

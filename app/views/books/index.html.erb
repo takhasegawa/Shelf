@@ -7,15 +7,19 @@
 
 <%= render "categories" %>
 
+<% if @category %>
+<div>index > <%= @category.name %></div>
+<% end %>
+
 <% if params[:action] == "index" %>
 <span class="selected">在庫</span>
 <% else %>
-<span><%= link_to "在庫" , :books %></span>
+<span><%= link_to "在庫" , [@category, :books] %></span>
 <% end %>
 <% if params[:action] == "checked_out"  %>
 <span class="selected">貸出中</span>
 <% else %>
-<span><%= link_to "貸出中" , [:checked_out, :books] %></span>
+<span><%= link_to "貸出中" , [:checked_out, @category, :books] %></span>
 <% end %>
 <% if params[:action] == "search" %>
 <span class="selected">検索結果</span>
