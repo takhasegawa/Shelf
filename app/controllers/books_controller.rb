@@ -1,21 +1,12 @@
 class BooksController < ApplicationController
+  before_filter :prepare, :only => [ :index, :checked_out]
 
   def index
-    if params[:category_id]
-      @category = Category.find(params[:category_id])
-      @books = @category.books.checked_in.paginate(:page => params[:page], :per_page =>20)
-    else
-      @books = Book.checked_in.paginate(:page => params[:page], :per_page =>20)
-    end
+    @books = @books.checked_in.paginate(:page => params[:page], :per_page =>20)
   end
   
   def checked_out
-    if params[:category_id]
-      @category = Category.find(params[:category_id])
-      @books = @category.books.checked_out.paginate(:page => params[:page], :per_page => 20)
-    else
-      @books = Book.checked_out.paginate(:page => params[:page], :per_page => 20)
-    end
+    @books = @books.checked_out.paginate(:page => params[:page], :per_page => 20)
     render :index
   end
   
@@ -71,5 +62,16 @@ class BooksController < ApplicationController
     @books = Book.search(params[:query])
     @books = @books.paginate(:page => params[:page], :per_page => 20)
     render :index
+  end
+
+  private
+
+  def prepare
+    if params[:category_id]
+      @category = Category.find(params[:category_id])
+      @books = @category.books
+    else
+      @books = Book
+    end  
   end
 end
