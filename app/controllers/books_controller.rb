@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_filter :prepare, :only => [ :index, :checked_out]
+  before_filter :prepare_basebooks, :only => [ :index, :checked_out]
 
   def index
     @books = @books.checked_in.paginate(:page => params[:page], :per_page =>20)
@@ -66,7 +66,7 @@ class BooksController < ApplicationController
 
   private
 
-  def prepare
+  def prepare_basebooks
     if params[:category_id]
       @category = Category.find(params[:category_id])
       @books = @category.books
@@ -74,4 +74,5 @@ class BooksController < ApplicationController
       @books = Book
     end  
   end
+
 end

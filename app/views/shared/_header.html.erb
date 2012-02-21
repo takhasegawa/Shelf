@@ -1,5 +1,7 @@
 <header>
    <h1>Share - 蔵書管理アプリケーション</h1>
    <div id="header_bookcount">
-      現在登録されている書籍は   </div>
+      現在登録されている書籍は <%= Book.count %>冊です。<br />
+      そのうち<%= Book.checked_out.count %>冊が貸し出されています。
+    </div>
 </header>
