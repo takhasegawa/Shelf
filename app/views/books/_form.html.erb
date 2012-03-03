@@ -22,6 +22,14 @@
      <td><%= form.number_field :publish_year %></td>
    </tr>
    <tr>
+     <td><%= form.label :category_id %></td>
+     <td>
+     <% if Category.all.present? %>
+       <%= form.select :category_id, category_options %></li>
+      <% end %>
+     <td>
+   </tr>
+   <tr>
      <td><%= form.label :comment %></td>
      <td><%= form.text_area :comment %>
    </tr>
