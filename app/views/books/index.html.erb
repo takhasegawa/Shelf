@@ -1,5 +1,7 @@
 <h1>本棚</h1>
 
+<%= render "menu" %>
+
 <%= form_tag [:search, :books], :method => :get do%>
   <%= text_field_tag "query", params[:query] %>
   <%= submit_tag "検索" %>

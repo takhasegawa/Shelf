@@ -1,0 +1,21 @@
+// Place all the styles related to the categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+table#categories {
+  width: 300px;
+  border-collapse: collapse;
+  margin: 10px;
+  margin-bottom: 3em;
+  tr {
+    border-bottom: dashed 1px #999;
+  }
+  td {
+   padding: auto 5px auto 5px;
+  }
+  
+  col.name {
+    width: 120px;
+  }
+}
+
