@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        book:
+          attributes:
+            base:
+              missing_category: "指定されたカテゴリーは存在しないか、削除されました。"
