@@ -1,13 +1,7 @@
-<% unless @book.errors.empty? %>
-  <p>入力内容に誤りがあります。</p>
-  <ul id="error_messages">
-  <% @book.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-  <% end %>
-  </ul>  
-<% end %>
-
 <%= form_for @book do |form| %>
+
+<%= render "shared/error_messages", :object => @book %>
+
 <table>
   <tr>
     <td><%= form.label :title  %></td>

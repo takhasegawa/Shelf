@@ -8,4 +8,7 @@ ja:
         comment: コメント
         checked_out: 貸出中
         category_id: カテゴリー
+      category:
+        name: カテゴリー名
+        color: カテゴリーの色
         
