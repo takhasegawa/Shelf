@@ -6,3 +6,7 @@ ja:
           attributes:
             base:
               missing_category: "指定されたカテゴリーは存在しないか、削除されました。"
+        category:
+          attributes:
+            name:
+              taken: "「%{value}」はすでに登録されています。"
